@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import pytest
-from data import Data
 from application import Application
 
 
@@ -13,4 +12,9 @@ def app(request):
 
 def test_login(app):
     app.open_page()
-    app.fill_form(Data(user="QA_DB_superuser", password="roo6Piv2"))
+    app.fill_form(user="QA_DB_superuser", password="roo6Piv2")
+
+
+def test_empty_login(app):
+    app.open_page()
+    app.fill_form(user="", password="")

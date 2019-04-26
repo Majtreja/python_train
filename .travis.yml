@@ -22,7 +22,7 @@ before_script:
   - sudo apt-get update
   - sudo apt-get install unzip
   - sudo pip install --upgrade pip
-  - sudo pip install -U selenium
+  - sudo pip3 install -U selenium
   - sudo pip install bs4
   - sudo pip install requests
   - wget https://chromedriver.storage.googleapis.com/73.0.3683.20/chromedriver_linux64.zip --no-check-certificate

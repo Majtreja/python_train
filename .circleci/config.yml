@@ -40,18 +40,18 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
-      #from https://jazzteam.org/ru/technical-articles/launching-selenium-tests-on-circleci-using-docker/
-      - run:
-          name: create docker network
-          command: docker network create grid
-
-      - run:
-          name: install selenium-hub
-          command: docker run -d --rm -p 4444:4444 --net grid --name selenium-hub selenium/hub:3.11.0
-
-      - run:
-          name: install selenium-node
-          command: docker run -d --rm --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome:3.11.0
+#      #from https://jazzteam.org/ru/technical-articles/launching-selenium-tests-on-circleci-using-docker/
+#      - run:
+#          name: create docker network
+#          command: docker network create grid
+#
+#      - run:
+#          name: install selenium-hub
+#          command: docker run -d --rm -p 4444:4444 --net grid --name selenium-hub selenium/hub:3.11.0
+#
+#      - run:
+#          name: install selenium-node
+#          command: docker run -d --rm --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome:3.11.0
 
       # run tests!
       # this example uses Django's built-in test-runner

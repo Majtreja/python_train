@@ -1,11 +1,8 @@
 language: python
 
-#addons:
-#  apt:
-#    sources:
-#      - google-chrome # if your project contains tests need to be run on chrome include these lines
-#    packages:
-#      - google-chrome-stable
+sudo: required
+
+dist: xenial
 
 addons:
    firefox: "latest" # if your project contains tests need to be run on firefox include these lines
@@ -16,6 +13,14 @@ before_install:
   - sleep 3
 
 before_script:
+  - sudo apt-get update
+  - sudo apt-get install unzip
+  - sudo pip install --upgrade pip
+  - sudo pip install -U selenium
+  - sudo pip install bs4
+  - sudo pip install requests
+  - wget https://chromedriver.storage.googleapis.com/73.0.3683.20/chromedriver_linux64.zip --no-check-certificate
+  - unzip chromedriver_linux64.zip
   # Selenium server
   - "sh -e /etc/init.d/xvfb start"
   - "export DISPLAY=99:0"

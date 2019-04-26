@@ -1,8 +1,8 @@
 language: python
 
-sudo: required
-
-dist: xenial
+#sudo: required
+#
+#dist: xenial
 
 addons:
    firefox: "latest" # if your project contains tests need to be run on firefox include these lines

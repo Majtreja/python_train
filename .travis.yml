@@ -13,6 +13,12 @@ before_install:
   - sleep 3
 
 before_script:
+  # Selenium server
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=99:0"
+  - 'wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar'
+  - "java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>/dev/null &" # starting selenium-server
+  - sleep 20 # gives enough time to Selenium to start
   - sudo apt-get update
   - sudo apt-get install unzip
   - sudo pip install --upgrade pip
@@ -21,12 +27,8 @@ before_script:
   - sudo pip install requests
   - wget https://chromedriver.storage.googleapis.com/73.0.3683.20/chromedriver_linux64.zip --no-check-certificate
   - unzip chromedriver_linux64.zip
-  # Selenium server
-  - "sh -e /etc/init.d/xvfb start"
-  - "export DISPLAY=99:0"
-  - 'wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar'
-  - "java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>/dev/null &" # starting selenium-server
-  - sleep 20 # gives enough time to Selenium to start
+  - pwd
+  - ls -al
 
 script:
     - pytest

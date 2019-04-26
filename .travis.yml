@@ -1,11 +1,11 @@
 language: python
 
-addons:
-  apt:
-    sources:
-      - google-chrome # if your project contains tests need to be run on chrome include these lines
-    packages:
-      - google-chrome-stable
+#addons:
+#  apt:
+#    sources:
+#      - google-chrome # if your project contains tests need to be run on chrome include these lines
+#    packages:
+#      - google-chrome-stable
 
 addons:
    firefox: "latest" # if your project contains tests need to be run on firefox include these lines
@@ -17,11 +17,11 @@ before_install:
 
 before_script:
   # Selenium server
+  - "sh -e /etc/init.d/xvfb start"
+  - "export DISPLAY=99:0
   - 'wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar'
   - "java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>/dev/null &" # starting selenium-server
   - sleep 20 # gives enough time to Selenium to start
 
 script:
     - pytest
-
-#try some commit

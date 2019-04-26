@@ -18,7 +18,7 @@ before_install:
 before_script:
   # Selenium server
   - "sh -e /etc/init.d/xvfb start"
-  - "export DISPLAY=99:0
+  - "export DISPLAY=99:0"
   - 'wget http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar'
   - "java -jar selenium-server-standalone-3.9.1.jar > /dev/null 2>/dev/null &" # starting selenium-server
   - sleep 20 # gives enough time to Selenium to start

@@ -12,7 +12,7 @@ def app(request):
 
 def test_login(app):
     app.open_page()
-    app.fill_form(user="QA_DB_superuser", password="roo6Piv2")
+    app.fill_form(user="QA_DB_superuser", password="")
 
 
 def test_empty_login(app):

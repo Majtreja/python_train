@@ -1,5 +1,5 @@
 more-itertools==7.0.0
-py==1.8.0
+py==1.10.0
 pytest==4.4.1
 requests==2.21.0
 selenium==3.141.0
